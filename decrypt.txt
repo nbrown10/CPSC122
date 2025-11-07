@@ -1,0 +1,13 @@
+8-MyStr.cpp: In member function ‘int MyString::myStrlen() const’:
+8-MyStr.cpp:70:20: error: passing ‘const MyString’ as ‘this’ argument discards qualifiers [-fpermissive]
+   70 |     return myStrLen(str);
+      |            ~~~~~~~~^~~~~
+In file included from 8-MyStr.cpp:4:
+8-MyStr.h:43:8: note:   in call to ‘int MyString::myStrLen(const char*)’
+   43 |    int myStrLen(char const* strIn);
+      |        ^~~~~~~~
+8-MyStrTst.cpp: In function ‘int main(int, char**)’:
+8-MyStrTst.cpp:13:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+   13 | int main(int argc, char* argv[])
+CZGGJ RJMGY!
+OCDN DN V OZNO AJM KMJEZXO 3
