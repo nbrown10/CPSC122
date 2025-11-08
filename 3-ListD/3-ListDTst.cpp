@@ -12,11 +12,21 @@ using namespace std;
 //All tests are controlled by a dedicated function
 void TestInsert();
 void TestCopyConstructor();
+void TestPrintBackward();
+void TestDelete();
+void TestDestructor();
+void TestDeleteAll();
+void TestSort();
 
 int main()
 {
-// TestInsert();
+ TestInsert();
  TestCopyConstructor();
+ TestPrintBackward();
+ TestDelete();
+ TestDestructor();
+ TestDeleteAll();
+ TestSort();
 }
 
 
@@ -90,6 +100,48 @@ void TestDelete()
     cout << "Passed if 1 2 4 5 appear on separate lines" << endl;
 
     lst->Delete(3);
+    lst->PrintForward();
+
+    delete lst;
+}
+void TestDestructor()
+{
+    ListD* lst = new ListD;
+    for (int i = 1; i <= 5; i++) lst->Insert(i,i);
+    delete lst; // destructor called
+    cout << "Destructor ran without crashing." << endl;
+}
+void TestDeleteAll()
+{
+    ListD* lst = new ListD;
+    lst->Insert(1,1);
+    lst->Insert(2,2);
+    lst->Insert(2,3);
+    lst->Insert(3,4);
+    lst->Insert(2,5);
+
+    cout << "Original list:" << endl;
+    lst->PrintForward();
+
+    int removed = lst->DeleteAll(2);
+    cout << "After DeleteAll(2), removed " << removed << " nodes:" << endl;
+    lst->PrintForward();
+
+    delete lst;
+}
+void TestSort()
+{
+    ListD* lst = new ListD;
+    lst->Insert(3,1);
+    lst->Insert(1,2);
+    lst->Insert(4,3);
+    lst->Insert(2,4);
+
+    cout << "Original list:" << endl;
+    lst->PrintForward();
+
+    lst->Sort();
+    cout << "After Sort:" << endl;
     lst->PrintForward();
 
     delete lst;

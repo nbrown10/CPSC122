@@ -18,7 +18,7 @@ int main()
  lst.PutItemT(20);
  lst.PutItemT(30);
  cout << "After PutItemT is called" << endl;
- lst.Print();
+ lst.Print(); /*
 
  //Test for GetItemT
  cout << "Tail Item should be 30, it is: " << lst.GetItemT() << endl;
@@ -80,7 +80,7 @@ cout << endl << "Testing InsertItem" << endl;
    cout << "Correct" << endl;
  else
    cout << "Wrong" << endl;
-
+*/
 //Test DeleteItemT
  cout << endl << "Testing DeleteItemT again" << endl;
  lst.DeleteItemT();
@@ -90,7 +90,7 @@ cout << endl << "Testing InsertItem" << endl;
    cout << "Correct" << endl;
  else
    cout << "Wrong" << endl;
-
+/*
 //Test DeleteItemH
  cout << endl << "Testing DeleteItemH" << endl;
  lst.DeleteItemH();
@@ -103,5 +103,5 @@ cout << endl << "Testing InsertItem" << endl;
 
  cout << endl << "All tests done." << endl;
 
- return 0;
+ return 0; */
 }

@@ -46,11 +46,6 @@ void ListD::InitializeVars()
  tail->next = NULL;
 }
 
-//how would you do this?
-ListD::~ListD()
-{
-}
-
 doubleNode* ListD::FindPosition(int pos)
 {
  //Inserting at the tail is a special case.  It can be made much more efficient than
@@ -106,7 +101,7 @@ while (i < length)
  {
     cout << cur->item << endl;
     cur = cur->next;
-    i++
+    i++;
 }
 }
 void ListD::Delete(int pos)
@@ -120,4 +115,59 @@ void ListD::Delete(int pos)
 
     delete target;
     length--;
+}
+ListD::~ListD()
+{
+    while (length > 0)
+        Delete(1); // deletes the first real node
+    delete head;  // delete dummy head
+    delete tail;  // delete dummy tail
+}
+int ListD::DeleteAll(itemType item)
+{
+    int count = 0;
+    doubleNode* cur = head->next;
+    while (cur != tail)
+    {
+        if (cur->item == item)
+        {
+            doubleNode* tmp = cur;
+            cur->prev->next = cur->next;
+            cur->next->prev = cur->prev;
+            cur = cur->next;
+            delete tmp;
+            count++;
+            length--;
+        }
+        else
+        {
+            cur = cur->next;
+        }
+    }
+    return count;
+}
+void ListD::Sort()
+{
+    if (length < 2) return;
+
+    doubleNode* i = head->next;
+    while (i != tail->prev)
+    {
+        doubleNode* minNode = i;
+        doubleNode* j = i->next;
+        while (j != tail)
+        {
+            if (j->item < minNode->item)
+                minNode = j;
+            j = j->next;
+        }
+        if (minNode != i)
+        {
+            // Swap items
+            itemType temp = i->item;
+            i->item = minNode->item;
+            minNode->item = temp;
+        }
+        i = i->next;
+    }
 }
