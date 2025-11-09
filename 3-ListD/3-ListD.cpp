@@ -94,16 +94,18 @@ void ListD::PrintForward()
   i++;
  }
 }
+//Print Backward function
 void ListD::PrintBackward(){
     doubleNode* cur = tail->prev;
 int i = 0;
 while (i < length)
  {
     cout << cur->item << endl;
-    cur = cur->next;
+    cur = cur->prev;
     i++;
 }
 }
+// Delete Function
 void ListD::Delete(int pos)
 {
     doubleNode* before = FindPosition(pos);
@@ -116,6 +118,7 @@ void ListD::Delete(int pos)
     delete target;
     length--;
 }
+//Destructor Function
 ListD::~ListD()
 {
     while (length > 0)
@@ -123,6 +126,7 @@ ListD::~ListD()
     delete head;  // delete dummy head
     delete tail;  // delete dummy tail
 }
+//DeleteAll of specific item
 int ListD::DeleteAll(itemType item)
 {
     int count = 0;
@@ -146,6 +150,7 @@ int ListD::DeleteAll(itemType item)
     }
     return count;
 }
+// Sort Function
 void ListD::Sort()
 {
     if (length < 2) return;

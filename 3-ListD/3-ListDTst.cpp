@@ -30,7 +30,7 @@ int main()
 }
 
 
-
+//Test Insert Function
 void TestInsert()
 {
  ListD* lst = new ListD;
@@ -61,7 +61,7 @@ void TestInsert()
  cout << endl;
  delete lst;
 }
-
+//Test CopyConstructor function
 void TestCopyConstructor()
 {
  ListD* lst1 = new ListD();
@@ -81,6 +81,7 @@ void TestCopyConstructor()
  delete lst1;
  delete lst2;
 }
+//Test Print Backward function
 void TestPrintBackward()
 {
   ListD* lst = new ListD;
@@ -90,6 +91,7 @@ void TestPrintBackward()
   lst->PrintBackward();
   delete lst;
 }
+//Test Delete function
 void TestDelete()
 {
     ListD* lst = new ListD;
@@ -104,6 +106,7 @@ void TestDelete()
 
     delete lst;
 }
+//Test Destructor Function
 void TestDestructor()
 {
     ListD* lst = new ListD;
@@ -111,6 +114,7 @@ void TestDestructor()
     delete lst; // destructor called
     cout << "Destructor ran without crashing." << endl;
 }
+//Test Delete All function
 void TestDeleteAll()
 {
     ListD* lst = new ListD;
@@ -129,6 +133,7 @@ void TestDeleteAll()
 
     delete lst;
 }
+//Test Sort Function
 void TestSort()
 {
     ListD* lst = new ListD;
@@ -146,3 +151,4 @@ void TestSort()
 
     delete lst;
 }
+
